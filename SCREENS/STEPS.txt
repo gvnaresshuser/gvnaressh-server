@@ -1,0 +1,29 @@
+npm create vite@latest gvnaressh
+
+https://console.neon.tech/app/projects/solitary-band-55264457?database=neondb
+
+connection pool
+postgresql://neondb_owner:npg_a1FOJtUNnBW3@ep-broad-queen-atxyj8c8-pooler.c-9.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require
+
+
+postgresql://neondb_owner:npg_a1FOJtUNnBW3@ep-broad-queen-atxyj8c8.c-9.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require
+
+
+CREATE TABLE users (
+    id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(150) UNIQUE NOT NULL,
+    mobile VARCHAR(15) UNIQUE NOT NULL,
+    college_or_company VARCHAR(200),
+    profession VARCHAR(100),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+| Method | URL        | Description    |
+| ------ | ---------- | -------------- |
+| GET    | `/users`   | Get All Users  |
+| GET    | `/users/1` | Get User By Id |
+| POST   | `/users`   | Create User    |
+| PUT    | `/users/1` | Update User    |
+| DELETE | `/users/1` | Delete User    |

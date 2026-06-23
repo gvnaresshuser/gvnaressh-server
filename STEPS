@@ -1,0 +1,31 @@
+Microsoft Windows [Version 10.0.26100.8246]
+(c) Microsoft Corporation. All rights reserved.
+
+E:\gvnaressh\server>code .
+
+E:\gvnaressh\server>npm init -y
+Wrote to E:\gvnaressh\server\package.json:
+
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
+
+
+
+E:\gvnaressh\server>
+-----------------------------------------------------
+npm install express cors dotenv 
+npm i -D nodemon
+npm i pg
+
+npm run dev
