@@ -8,6 +8,7 @@ postgresql://neondb_owner:npg_a1FOJtUNnBW3@ep-broad-queen-atxyj8c8-pooler.c-9.us
 
 postgresql://neondb_owner:npg_a1FOJtUNnBW3@ep-broad-queen-atxyj8c8.c-9.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require
 
+DROP TABLE users;
 
 CREATE TABLE users (
     id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -16,6 +17,7 @@ CREATE TABLE users (
     mobile VARCHAR(15) UNIQUE NOT NULL,
     college_or_company VARCHAR(200),
     profession VARCHAR(100),
+    interested_courses TEXT[],
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 

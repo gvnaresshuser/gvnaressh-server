@@ -21,14 +21,8 @@ export const createUser = async ({
   mobile,
   collegeOrCompany,
   profession,
+  interestedCourses,
 }) => {
-      console.log({
-        name,
-        email,
-        mobile,
-        collegeOrCompany,
-        profession,
-      });
   const result = await pool.query(
     `
     INSERT INTO users
@@ -37,21 +31,29 @@ export const createUser = async ({
       email,
       mobile,
       college_or_company,
-      profession
+      profession,
+      interested_courses
     )
-    VALUES ($1, $2, $3, $4, $5)
+    VALUES ($1, $2, $3, $4, $5, $6)
     RETURNING *
     `,
-    [name, email, mobile, collegeOrCompany, profession],
+    [
+      name,
+      email,
+      mobile,
+      collegeOrCompany,
+      profession,
+      interestedCourses, // Array
+    ],
   );
 
   return result.rows[0];
 };
 
-// Update User
+//Update User
 export const updateUser = async (
   id,
-  { name, email, mobile, collegeOrCompany, profession },
+  { name, email, mobile, collegeOrCompany, profession, interestedCourses },
 ) => {
   const result = await pool.query(
     `
@@ -61,11 +63,20 @@ export const updateUser = async (
       email = $2,
       mobile = $3,
       college_or_company = $4,
-      profession = $5
-    WHERE id = $6
+      profession = $5,
+      interested_courses = $6
+    WHERE id = $7
     RETURNING *
     `,
-    [name, email, mobile, collegeOrCompany, profession, id],
+    [
+      name,
+      email,
+      mobile,
+      collegeOrCompany,
+      profession,
+      interestedCourses, // Array
+      id,
+    ],
   );
 
   return result.rows[0];
